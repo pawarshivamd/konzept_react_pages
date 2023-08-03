@@ -3,7 +3,7 @@ import htmlIlu from "../img/html-ilu.svg"
 const HTML5Developer = () => {
   return (
     <div className='container'>
-    <div className='description-section'>
+      <div className='description-section'>
 
         <div className='row'>
           <div className='col-lg-6 col-md-12 col-sm-12'>
@@ -18,7 +18,7 @@ const HTML5Developer = () => {
             </div>
           </div>
         </div>
-    </div>
+      </div>
     </div>
   )
 }

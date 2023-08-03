@@ -3,7 +3,7 @@ import reactjsIlu from "../img/react-js-ilu.svg"
 const ReactJsDeveloper = () => {
   return (
     <div className='container'>
-    <div className='description-section'>
+      <div className='description-section'>
         <div className='row'>
           <div className='col-lg-6 col-md-12 col-sm-12'>
             <div className='img-box'>
@@ -17,8 +17,8 @@ const ReactJsDeveloper = () => {
             </div>
           </div>
         </div>
+      </div>
     </div>
-  </div>
   )
 }
 

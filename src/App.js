@@ -1,5 +1,5 @@
 
-import React, { lazy ,Suspense } from 'react'
+import React, { lazy, Suspense } from 'react'
 import './App.css';
 // import Blog from './pages/Blog';
 // import BlogPost from './pages/BlogPost';
@@ -12,7 +12,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
-const HireDeveloper =lazy(()=> import("./pages/HireDeveloper"));
+const HireDeveloper = lazy(() => import("./pages/HireDeveloper"));
 function App() {
   return (
 
@@ -20,12 +20,12 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<Blog />} />
-          <Route path="/BlogPost" element={<BlogPost />} />
-          <Route path='/HireDeveloper' element={<HireDeveloper/>} />
-        </Routes>
-      </Suspense>
+          <Routes>
+            <Route path="/" element={<Blog />} />
+            <Route path="/BlogPost" element={<BlogPost />} />
+            <Route path='/HireDeveloper' element={<HireDeveloper />} />
+          </Routes>
+        </Suspense>
         <Footer />
       </BrowserRouter>
     </>

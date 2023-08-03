@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight} from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import reactnativeicon from "../img/tach logo/react.svg";
 import nodejsicon from "../img/tach logo/node-js.svg";
-import fluttericon from "../img/tach logo/react.svg";
+import fluttericon from "../img/tach logo/flutter.svg";
 import htmlicon from "../img/tach logo/html.svg";
 
 import ReactNative from '../Components/ReactNative';
@@ -13,6 +13,12 @@ import HTML5Developer from '../Components/HTML5Developer';
 import FlutterDeveloper from '../Components/FlutterDeveloper';
 import ReactJsDeveloper from '../Components/ReactJsDeveloper';
 import AccordionApi from '../API/AccordionApi';
+import TEReactNative from '../Components/TEReactNative';
+import TEReactJs from '../Components/TEReactJs';
+import TENodeJs from '../Components/TENodeJs';
+
+import TEHTML from '../Components/TEHTML';
+import TEFlutter from '../Components/TEFlutter';
 const HireDeveloper = (props) => {
   const [accordionItems, setAccordionItems] = useState(AccordionApi);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -27,7 +33,8 @@ const HireDeveloper = (props) => {
     title: 'Hire React Native Developer',
     icon: reactnativeicon,
     description: 'Harness the power of React JS with our top-tier developers – creating standout apps for every platform, effortlessly. Revamp your digital landscape with us',
-    component: <ReactNative />
+    component: <ReactNative />,
+    componentTE: <TEReactNative />
   });
 
   const hireContents = {
@@ -35,25 +42,29 @@ const HireDeveloper = (props) => {
       title: 'Hire React JS Developer',
       icon: reactnativeicon,
       description: 'Harness the power of React JS with our top-tier developers – creating standout apps for every platform, effortlessly. Revamp your digital landscape with us',
-      component: <ReactJsDeveloper />
+      component: <ReactJsDeveloper />,
+      componentTE: <TEReactJs />
     },
     'Node Js': {
       title: 'Hire Node Js Developer',
       icon: nodejsicon,
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tenetur exercitationem minus tempore nam ea, quos commodi. Et explicabo alias corporis tempora rerum officiis quo beatae eius, optio, minima fugiat?',
-      component: <NodeJsDeveloper />
+      component: <NodeJsDeveloper />,
+      componentTE: <TENodeJs />
     },
     'Flutter': {
       title: 'Hire Flutter Developer',
       icon: fluttericon,
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tenetur exercitationem minus tempore nam ea, quos commodi. Et explicabo alias corporis tempora rerum officiis quo beatae eius, optio, minima fugiat?',
-      component: <FlutterDeveloper />
+      component: <FlutterDeveloper />,
+      componentTE: <TEFlutter />
     },
     'HTML 5': {
       title: 'Hire HTML 5 Developer',
       icon: htmlicon,
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tenetur exercitationem minus tempore nam ea, quos commodi. Et explicabo alias corporis tempora rerum officiis quo beatae eius, optio, minima fugiat?',
-      component: <HTML5Developer />
+      component: <HTML5Developer />,
+      componentTE: <TEHTML />
     }
   };
 
@@ -83,7 +94,7 @@ const HireDeveloper = (props) => {
           <div className='row'>
             <div className='col-lg-6 col-md-6 col-sm-12'>
               <div className='hire-content-body'>
-              <div className='icon-box'>
+                <div className='icon-box'>
                   <img src={selectedDeveloper.icon} alt="" />
                 </div>
                 <h3>{selectedDeveloper.title}</h3>
@@ -98,6 +109,7 @@ const HireDeveloper = (props) => {
                   </ul>
                 </div>
               </div>
+              {/* {selectedDeveloper.component} */}
             </div>
             <div className='col-lg-6 col-md-6 col-sm-12'>
               <div>
@@ -197,7 +209,7 @@ const HireDeveloper = (props) => {
                         <h4><strong style={{ color: " #000907" }}>Thank You!</strong></h4>
                         <p> We are happy that you reached us. We will get back
                           to you soon</p>
-                        <button type="button"  onClick={handleCloseMessage} className="close" data-dismiss="alert" aria-label="Close">
+                        <button type="button" onClick={handleCloseMessage} className="close" data-dismiss="alert" aria-label="Close">
                           <span aria-hidden="true">×</span>
                         </button>
                       </div>
@@ -212,7 +224,10 @@ const HireDeveloper = (props) => {
         </div>
       </section>
       <section>
-      {selectedDeveloper.component}
+        {selectedDeveloper.component}
+      </section>
+      <section>
+        {selectedDeveloper.componentTE}
       </section>
       <section>
         <div className="container">
@@ -266,17 +281,43 @@ const HireDeveloper = (props) => {
           </div>
         </div>
       </section>
-                      {/* faq */}
-          <section>
+      {/* banner section */}
+      <section>
+        <div className='container'>
+          <div className='banner-section'>
+            <div className='row align-items-center'>
+              <div className='col-lg-6 col-md-6 col-sm-12'>
+                <h3 className='text-center'>Let's talk about your <br /> Innovative project idea</h3>
+              </div>
+              <div className='col-lg-6 col-md-6 col-sm-12'>
+                <div className='text-center'>
+
+                  <Link href="#" className="btn btn__primary btn__primary-style2 mr-30" ><span>Get started</span><FontAwesomeIcon icon={faArrowRight} /></Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* faq */}
+      <section>
         <div className="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+              <div class="heading text-center mb-50">
+                <h2 class="heading__subtitle">Frequently asked questions</h2>
+                <h3 class="heading__title">What Are You Searching For?</h3>
+              </div>
+            </div>
+          </div>
           <div id="accordion" className="row">
             <div className="col-sm-12 col-md-12 col-lg-6">
-            {accordionItems.slice(0, 5).map(item => (
+              {accordionItems.slice(0, 5).map(item => (
                 <div key={item.id} className={`accordion-item ${item.isOpen ? 'opened' : ''}`}>
                   <div className="accordion__header" onClick={() => toggleAccordion(item.id)}>
                     <div className="accordion__title">{item.title}</div>
                   </div>
-                  <div id={`collapse${item.id}`} className={`collapse ${item.isOpen ? 'show' : ''}`} data-parent="#accordion">
+                  <div id={`collapse${item.id}`} className={`accordion-open collapse ${item.isOpen ? 'show' : ''}`} data-parent="#accordion">
                     <div className="accordion__body">
                       <p>{item.description}</p>
                     </div>
@@ -286,7 +327,7 @@ const HireDeveloper = (props) => {
 
             </div>
             <div className="col-sm-12 col-md-12 col-lg-6">
-            {accordionItems.slice(5,10).map(item => (
+              {accordionItems.slice(5, 10).map(item => (
                 <div key={item.id} className={`accordion-item ${item.isOpen ? 'opened' : ''}`}>
                   <div className="accordion__header" onClick={() => toggleAccordion(item.id)}>
                     <div className="accordion__title">{item.title}</div>

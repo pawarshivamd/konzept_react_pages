@@ -3,7 +3,7 @@ import fulterIlu from "../img/fulter-ilu.svg"
 const FlutterDeveloper = () => {
   return (
     <div className='container'>
-    <div className='description-section'>
+      <div className='description-section'>
         <div className='row'>
           <div className='col-lg-6 col-md-12 col-sm-12'>
             <div className='img-box'>
@@ -17,8 +17,8 @@ const FlutterDeveloper = () => {
             </div>
           </div>
         </div>
-        </div>
-        </div>
+      </div>
+    </div>
   )
 }
 

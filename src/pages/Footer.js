@@ -1,5 +1,5 @@
 import React from 'react'
-import { faPhone, faEnvelope ,faLinkedInIn } from '@fortawesome/free-solid-svg-icons'
+import { faPhone, faEnvelope, faLinkedInIn } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import facebook from '../img/icon/facebook.svg'
 import linkdin from '../img/icon/linkedin.svg'
@@ -81,10 +81,10 @@ const Footer = () => {
 
                                     <li className="mt-20 mb-20">
                                         <a href="tel:+919925033209" className="phone-number w-100 d-flex">
-                                        <FontAwesomeIcon icon={faPhone} className='col-1 p-0 pt-2' /> <span className='p-0 pl-1 col-11'>+91 99250 33209</span>
+                                            <FontAwesomeIcon icon={faPhone} className='col-1 p-0 pt-2' /> <span className='p-0 pl-1 col-11'>+91 99250 33209</span>
                                         </a>
-                                        <a href="mailto:contact@konzeptsolutions.com"className="phone-number w-100 d-flex">
-                                        <FontAwesomeIcon icon={faEnvelope} className='col-1 p-0 pt-2' /><span className='p-0 pl-1 col-11'>contact@konzeptsolutions.com</span></a>
+                                        <a href="mailto:contact@konzeptsolutions.com" className="phone-number w-100 d-flex">
+                                            <FontAwesomeIcon icon={faEnvelope} className='col-1 p-0 pt-2' /><span className='p-0 pl-1 col-11'>contact@konzeptsolutions.com</span></a>
                                         {/* <a href="mailto:contact@konzeptsolutions.com"className="phone-number">
                                         <FontAwesomeIcon icon={faEnvelope} /><span>contact@konzeptsolutions.com</span></a> */}
                                     </li>
@@ -97,23 +97,23 @@ const Footer = () => {
                                     <li><a href="https://www.facebook.com/konzeptsolutions/" target="_blank"><img
                                         className="facdn" src={facebook} alt="" /></a></li>
                                     <li><a href="https://www.linkedin.com/company/konzeptsolutions" target="_blank">
-                                    <img className="facdn" src={linkdin} alt="" />
-                                    {/* <FontAwesomeIcon icon={faLinkedInIn} /> */}
+                                        <img className="facdn" src={linkdin} alt="" />
+                                        {/* <FontAwesomeIcon icon={faLinkedInIn} /> */}
                                     </a></li>
                                     <li><a href="https://www.instagram.com/konzeptsolutions/" target="_blank"><img
                                         className="facdn" src={instagram} alt="" /></a></li>
                                     <li><a href="https://twitter.com/konzeptsolution" target="_blank"><img className="facdn"
                                         src={twiitter} alt="" /></a></li>
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                
-                <div className="row">
-                    <div className="col-sm-12 col-md-12 col-lg-12 text-center pb-110">
-                        <span className="fz-14">Copyrights &copy; 2023 All Rights Reserved |</span>
-                        <a href="https://www.konzeptsolutions.com/index"><span style={{color: '#1AB2A9'}}> konzept solutions</span></a>
+
+                    <div className="row">
+                        <div className="col-sm-12 col-md-12 col-lg-12 text-center pb-110">
+                            <span className="fz-14">Copyrights &copy; 2023 All Rights Reserved |</span>
+                            <a href="https://www.konzeptsolutions.com/index"><span style={{ color: '#1AB2A9' }}> konzept solutions</span></a>
                         </div>
                     </div>
                 </div>

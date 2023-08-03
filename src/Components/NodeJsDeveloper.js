@@ -3,7 +3,7 @@ import nodeIlu from "../img/node-ilu.svg"
 const NodeJsDeveloper = () => {
   return (
     <div className='container'>
-    <div className='description-section'>
+      <div className='description-section'>
         <div className='row'>
           <div className='col-lg-6 col-md-12 col-sm-12'>
             <div className='img-box'>
@@ -17,8 +17,8 @@ const NodeJsDeveloper = () => {
             </div>
           </div>
         </div>
-        </div>
-        </div>
+      </div>
+    </div>
   )
 }
 

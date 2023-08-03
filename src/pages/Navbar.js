@@ -19,21 +19,21 @@ const Navbar = () => {
             const scrollTop = window.pageYOffset;
             const isMaxWidth991 = window.innerWidth <= 991;
 
-            if (scrollTop > 25 ) {
+            if (scrollTop > 25) {
                 setShowScroll(true);
-                
+
                 setLogoSrc(logoimg);
             } else {
                 setShowScroll(false);
                 setLogoSrc(logoimgwhite);
             }
-            
-            
+
+
             if (scrollTop > 150) {
                 setShowTopBtn(true);
-              } else {
+            } else {
                 setShowTopBtn(false);
-              }
+            }
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -41,8 +41,8 @@ const Navbar = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }
-    , []);
- 
+        , []);
+
     const handleCloseMenu = () => {
         setOpen(false);
     };
@@ -54,14 +54,14 @@ const Navbar = () => {
     };
     const handleScrollTop = () => {
         window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
+            top: 0,
+            behavior: 'smooth',
         });
-      };
+    };
 
     return (
         <>
-        <button id="scrollTopBtn" onClick={handleScrollTop}  className={`${showTopBtn ? 'actived ' : ''}`} ><img src={aroup} alt="" /></button>
+            <button id="scrollTopBtn" onClick={handleScrollTop} className={`${showTopBtn ? 'actived ' : ''}`} ><img src={aroup} alt="" /></button>
             <header className={`header ${showScroll ? '' : 'header-transparent'}  header-full`}>
                 <nav className={`navbar navbar-expand-lg  ${showScroll ? 'is-sticky' : ''}  `}>
                     <div className="container">
