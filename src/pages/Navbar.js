@@ -81,8 +81,11 @@ const Navbar = () => {
                                 <li className="nav__item has-dropdown">
                                     <a href='https://www.konzeptsolutions.com/index' className="dropdown-toggle nav__item-link ">Home</a>
                                 </li>
+                                {/* <li className="nav__item has-dropdown">
+                                    <Link to='/hiredeveloper' className="dropdown-toggle nav__item-link ">Hire Developer</Link>
+                                </li> */}
                                 <li className="nav__item has-dropdown">
-                                    <Link to='/HireDeveloper' className="dropdown-toggle nav__item-link ">Hire Developer</Link>
+                                    <Link to='/hiredeveloper' className="dropdown-toggle nav__item-link ">Hire Developer</Link>
                                 </li>
                                 <li className="nav__item has-dropdown">
                                     <Link to="/" data-toggle="dropdown" className="dropdown-toggle nav__item-link" onClick={handleAccordionToggle}>IT

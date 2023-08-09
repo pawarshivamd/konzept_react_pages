@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import reactnativeicon from "../img/tach logo/react.svg";
 import nodejsicon from "../img/tach logo/node-js.svg";
 import fluttericon from "../img/tach logo/flutter.svg";
 import htmlicon from "../img/tach logo/html.svg";
-
 import ReactNative from '../Components/ReactNative';
 import NodeJsDeveloper from '../Components/NodeJsDeveloper';
 import HTML5Developer from '../Components/HTML5Developer';
@@ -16,10 +15,10 @@ import AccordionApi from '../API/AccordionApi';
 import TEReactNative from '../Components/TEReactNative';
 import TEReactJs from '../Components/TEReactJs';
 import TENodeJs from '../Components/TENodeJs';
-
 import TEHTML from '../Components/TEHTML';
 import TEFlutter from '../Components/TEFlutter';
-const HireDeveloper = (props) => {
+const HireDeveloper = () => {
+  const { id } = useParams();
   const [accordionItems, setAccordionItems] = useState(AccordionApi);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const toggleAccordion = (itemId) => {
@@ -29,47 +28,54 @@ const HireDeveloper = (props) => {
       )
     );
   };
-  const [selectedDeveloper, setSelectedDeveloper] = useState({
-    title: 'Hire React Native Developer',
-    icon: reactnativeicon,
-    description: 'Harness the power of React JS with our top-tier developers – creating standout apps for every platform, effortlessly. Revamp your digital landscape with us',
-    component: <ReactNative />,
-    componentTE: <TEReactNative />
-  });
-
-  const hireContents = {
-    'React JS': {
-      title: 'Hire React JS Developer',
+  const [selectedDeveloper, setSelectedDeveloper] = useState(null);
+  const developers = [
+    {
+      id: "react-js",
+      title: 'React JS',
       icon: reactnativeicon,
-      description: 'Harness the power of React JS with our top-tier developers – creating standout apps for every platform, effortlessly. Revamp your digital landscape with us',
+      description: 'An emerging framework considered to be a future of cross platform app development.',
       component: <ReactJsDeveloper />,
-      componentTE: <TEReactJs />
+      componentTE: <TEReactJs />,
     },
-    'Node Js': {
-      title: 'Hire Node Js Developer',
+    {
+      id: "node-js",
+      title: 'Node JS',
       icon: nodejsicon,
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tenetur exercitationem minus tempore nam ea, quos commodi. Et explicabo alias corporis tempora rerum officiis quo beatae eius, optio, minima fugiat?',
+      description: 'An emerging framework considered to be a future of cross platform app development.',
       component: <NodeJsDeveloper />,
-      componentTE: <TENodeJs />
+      componentTE: <TENodeJs />,
     },
-    'Flutter': {
-      title: 'Hire Flutter Developer',
+    {
+      id: "flutter",
+      title: 'Flutter',
       icon: fluttericon,
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tenetur exercitationem minus tempore nam ea, quos commodi. Et explicabo alias corporis tempora rerum officiis quo beatae eius, optio, minima fugiat?',
+      description: 'An emerging framework considered to be a future of cross platform app development.',
       component: <FlutterDeveloper />,
-      componentTE: <TEFlutter />
+      componentTE: <TEFlutter />,
     },
-    'HTML 5': {
-      title: 'Hire HTML 5 Developer',
+    {
+      id: "html-5",
+      title: 'HTML 5',
       icon: htmlicon,
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tenetur exercitationem minus tempore nam ea, quos commodi. Et explicabo alias corporis tempora rerum officiis quo beatae eius, optio, minima fugiat?',
+      description: 'An emerging framework considered to be a future of cross platform app development.',
       component: <HTML5Developer />,
-      componentTE: <TEHTML />
-    }
-  };
-
-  const handleHireButtonClick = (title) => {
-    setSelectedDeveloper(hireContents[title]);
+      componentTE: <TEHTML />,
+    },
+    {
+      id: "react-native",
+      title: 'React Native',
+      icon: reactnativeicon,
+      description: 'An emerging framework considered to be a future of cross platform app development.',
+      component: <ReactNative />,
+      componentTE: <TEReactNative />,
+    },
+  ];
+  useEffect(() => {
+    const selectedDev = developers.find(dev => dev.id === id);
+    setSelectedDeveloper(selectedDev);
+  }, [id]);
+  const handleHireButtonClick = () => {
     scrollToTop();
   };
   const scrollToTop = () => {
@@ -81,35 +87,39 @@ const HireDeveloper = (props) => {
   const handleSubmitForm = (event) => {
     event.preventDefault();
     setShowSuccessMessage(true);
-    // You can add your form submission logic here
   };
 
   const handleCloseMessage = () => {
     setShowSuccessMessage(false);
   };
+  const filteredDevelopers = developers.filter(developer => developer.id !== id);
   return (
     <>
+
+
       <section>
         <div className='container'>
           <div className='row'>
             <div className='col-lg-6 col-md-6 col-sm-12'>
-              <div className='hire-content-body'>
-                <div className='icon-box'>
-                  <img src={selectedDeveloper.icon} alt="" />
+              {selectedDeveloper && (
+                <div className='hire-content-body'>
+                  <div className='icon-box'>
+                    <img src={selectedDeveloper.icon} alt="" />
+                  </div>
+                  <h3>{selectedDeveloper.title}</h3>
+                  <p>{selectedDeveloper.description}</p>
+                  <div>
+                    <ul>
+                    <li>{selectedDeveloper.li1}</li>
+                      <li>Transparent working models</li>
+                      <li>Source code authorization</li>
+                      <li>Agile development process</li>
+                      <li>Daily/weekly/monthly reporting</li>
+                      <li>On-time delivery</li>
+                    </ul>
+                  </div>
                 </div>
-                <h3>{selectedDeveloper.title}</h3>
-                <p>{selectedDeveloper.description}</p>
-                <div>
-                  <ul>
-                    <li>Transparent working models</li>
-                    <li>Source code authorization</li>
-                    <li>Agile development process</li>
-                    <li>Daily/weekly/monthly reporting</li>
-                    <li>On-time delivery</li>
-                  </ul>
-                </div>
-              </div>
-              {/* {selectedDeveloper.component} */}
+              )}
             </div>
             <div className='col-lg-6 col-md-6 col-sm-12'>
               <div>
@@ -224,60 +234,32 @@ const HireDeveloper = (props) => {
         </div>
       </section>
       <section>
-        {selectedDeveloper.component}
+        {selectedDeveloper && selectedDeveloper.component}
       </section>
       <section>
-        {selectedDeveloper.componentTE}
+        {selectedDeveloper && selectedDeveloper.componentTE}
       </section>
       <section>
         <div className="container">
           <h3 className="headig-sub-titile">Lorem ipsum dolor sit amet consectetur adipisicing elit. </h3>
           <h2 className="headig-title">Hire Developers</h2>
           <div className="row ">
-            <div className="col-lg-6 co-md-6 col-sm-12">
-              <div className="hire-dev-card">
-                <div className="img-box">
-                  <img src={reactnativeicon} alt="" />
+            {filteredDevelopers.map((developer) => (
+              <div className="col-lg-6 co-md-6 col-sm-12" key={developer.id}>
+                <div className="hire-dev-card">
+                  <div className="img-box">
+                    <img src={developer.icon} alt="" />
+                  </div>
+                  <h2 className="hire-dev-title">{developer.title}</h2>
+                  <h4 className="hire-dev-sub-title">{developer.description}</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt minus recusandae ipsam ea suscipit a eaque voluptatum sunt soluta quo explicabo similique fugiat, voluptas maxime odio eveniet atque enim delectus.</p>
+                  <Link href="#" to={`/hiredeveloper/${developer.id}`} onClick={() => handleHireButtonClick(developer.id)} className="btn btn__primary btn__primary-style2 mr-30">
+                    <span>{`Hire ${developer.title} `}</span>
+                    <FontAwesomeIcon icon={faArrowRight} />
+                  </Link>
                 </div>
-                <h2 className="hire-dev-title">React JS</h2>
-                <h4 className="hire-dev-sub-title">An emerging framework considered to be a future of cross platform app development.</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt minus recusandae ipsam ea suscipit a eaque voluptatum sunt soluta quo explicabo similique fugiat, voluptas maxime odio eveniet atque enim delectus.</p>
-                <Link href="#" onClick={() => handleHireButtonClick('React JS')} className="btn btn__primary btn__primary-style2 mr-30" ><span>Hire React js</span> <FontAwesomeIcon icon={faArrowRight} /></Link>
               </div>
-            </div>
-            <div className="col-lg-6 co-md-6 col-sm-12">
-              <div className="hire-dev-card">
-                <div className="img-box">
-                  <img src={nodejsicon} alt="" />
-                </div>
-                <h2 className="hire-dev-title">Node Js</h2>
-                <h4 className="hire-dev-sub-title">An emerging framework considered to be a future of cross platform app development.</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt minus recusandae ipsam ea suscipit a eaque voluptatum sunt soluta quo explicabo similique fugiat, voluptas maxime odio eveniet atque enim delectus.</p>
-                <Link href="#" onClick={() => handleHireButtonClick('Node Js')} className="btn btn__primary btn__primary-style2 mr-30" ><span>Hire Node Js</span> <FontAwesomeIcon icon={faArrowRight} /></Link>
-              </div>
-            </div>
-            <div className="col-lg-6 co-md-6 col-sm-12">
-              <div className="hire-dev-card">
-                <div className="img-box">
-                  <img src={fluttericon} alt="" />
-                </div>
-                <h2 className="hire-dev-title">Flutter</h2>
-                <h4 className="hire-dev-sub-title">An emerging framework considered to be a future of cross platform app development.</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt minus recusandae ipsam ea suscipit a eaque voluptatum sunt soluta quo explicabo similique fugiat, voluptas maxime odio eveniet atque enim delectus.</p>
-                <Link href="#" onClick={() => handleHireButtonClick('Flutter')} className="btn btn__primary btn__primary-style2 mr-30" ><span>Hire Fluter</span><FontAwesomeIcon icon={faArrowRight} /></Link>
-              </div>
-            </div>
-            <div className="col-lg-6 co-md-6 col-sm-12">
-              <div className="hire-dev-card">
-                <div className="img-box">
-                  <img src={htmlicon} alt="" />
-                </div>
-                <h2 className="hire-dev-title">HTML 5</h2>
-                <h4 className="hire-dev-sub-title">An emerging framework considered to be a future of cross platform app development.</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt minus recusandae ipsam ea suscipit a eaque voluptatum sunt soluta quo explicabo similique fugiat, voluptas maxime odio eveniet atque enim delectus.</p>
-                <Link href="#" onClick={() => handleHireButtonClick('HTML 5')} className="btn btn__primary btn__primary-style2 mr-30" ><span>Hire HTML 5</span><FontAwesomeIcon icon={faArrowRight} /></Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -347,4 +329,4 @@ const HireDeveloper = (props) => {
   )
 }
 
-export default HireDeveloper
+export default HireDeveloper;

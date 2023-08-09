@@ -6,13 +6,14 @@ import './App.css';
 import Footer from './pages/Footer';
 import Navbar from './pages/Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HireDeveloper from './pages/HireDeveloper';
 // import HireDevloper from './pages/HireDevloper';
 
 
 
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
-const HireDeveloper = lazy(() => import("./pages/HireDeveloper"));
+// const HireDeveloper = lazy(() => import("./pages/HireDeveloper"));
 function App() {
   return (
 
@@ -23,7 +24,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Blog />} />
             <Route path="/BlogPost" element={<BlogPost />} />
-            <Route path='/HireDeveloper' element={<HireDeveloper />} />
+            {/* <Route path='/hiredeveloper/:id' element={<HireDeveloper />} /> */}
+            <Route path="/hiredeveloper/:id" element={<HireDeveloper/>} />
           </Routes>
         </Suspense>
         <Footer />
